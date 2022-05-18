@@ -1,0 +1,60 @@
+---
+- hosts: ci_server
+  vars:
+    - custom_repo: true
+  vars_files:
+    - ~/RHACCOUNT
+  become: yes
+  become_method: sudo
+
+  pre_tasks:
+    - debug:
+        msg: "Variables: _uid = {{ _uid }}, _pwd = **********"
+        msg: "Variables: _uid = {{ _uid }}, _pwd = {{ _pwd }}"
+    - name: register RHEL7.5
+      command: "/usr/bin/subscription-manager register --username {{ _uid }} --password {{ _pwd }} --auto-attach --force"
+#     when: _uid != "" and _pwd != ""
+#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
+    - name: register RHEL7 repos necessary for Chrome (optional, extras)
+      command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
+    - name: register RHEL7 RHSCL Repo
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms"
+    - name: register RHEL7 DevTools
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
+    - name: list RHEL enabled repos
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+    - debug:
+        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
+  tasks:
+    - name: install libselinux-python
+      yum:
+        name: libselinux-python
+        state: present
+
+    - name: Install bash autocomplete
+      yum:
+        name:
+          - bash-completion
+#         - bash-completion-extras
+        state: present
+#     shell: yum install -y bash-completion bash-completion-extras
+
+#   - name: Install X Windows
+#     shell: yum groupinstall "X Window Server" -y  
+#     shell: yum groupinstall "Server with GUI" -y  
+
+#   - name: Install GNOME
+#     shell: yum groupinstall "GNOME" -y  
+
+#   - name: Set Graphical As Default
+#     shell: systemctl set-default graphical.target
+
+  roles:
+#   - {role: common, when: "install_glusterfs"}
+    - {role: common7, when: "install_glusterfs"}
+    - {role: puppet_disable, when: "disable_puppet"}
+    - {role: iptables, when: "iptables_config"}
+    - gocd_serverRH7
+#   - gocd
