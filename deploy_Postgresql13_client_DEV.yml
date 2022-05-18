@@ -1,5 +1,5 @@
 ---
-- hosts: ci_server
+- hosts: all
   vars:
     - custom_repo: true
   vars_files:
