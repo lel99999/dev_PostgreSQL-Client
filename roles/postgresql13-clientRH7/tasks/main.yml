@@ -73,13 +73,14 @@
   yum:
     name: "{{ item }}"
     state: present
+    disable_gpg_check: yes
   with_items: "{{ postgres13_packages }}"
 
-- name: Install postgres 13.x RHEL7 packages 
-  yum:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ postgres13_rhel_packages }}"
+#- name: Install postgres 13.x RHEL7 packages 
+#  yum:
+#    name: "{{ item }}"
+#    state: present
+#  with_items: "{{ postgres13_rhel_packages }}"
 
 - name: create symlink /usr/pgsql -> /usr/pgsql-13
   file:
