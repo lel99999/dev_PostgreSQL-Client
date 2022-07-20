@@ -28,7 +28,7 @@ postgres13_packages:
   - postgresql13-devel.x86_64
   - postgresql13-docs.x86_64
   - postgresql13-libs.x86_64
-  - postgresql13-llvmjit.x86_64
+##  - postgresql13-llvmjit.x86_64
   - postgresql13-odbc.x86_64
 ##  - postgresql13-plperl.x86_64
 ##  - postgresql13-plpython3.x86_64
