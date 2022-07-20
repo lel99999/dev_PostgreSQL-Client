@@ -22,6 +22,18 @@ postgres_packages:
   - postgresql10-devel
   - postgresql10-odbc
 
+postgres13_dependencies:
+  - libedit-devel
+  - llvm-toolset-7-clang
+  - llvm-toolset-7-clang-libs
+  - llvm-toolset-7-compiler-rt
+  - llvm-toolset-7-libomp
+  - llvm-toolset-7-llvm-libs
+  - llvm-toolset-7-runtime
+  - llvm5.0
+  - llvm5.0-devel
+  - llvm5.0-libs
+  
 postgres13_packages:
   - postgresql13.x86_64
   - postgresql13-contrib.x86_64
