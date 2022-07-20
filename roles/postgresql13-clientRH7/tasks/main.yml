@@ -62,12 +62,12 @@
 ##    - postgresql10-docs
 ##    - postgresql10-contrib
 
-- name: Set postgres 13.x repo
-  yum_repository:
-    name: postgresql13.x
-    description: postgresql 13.x repo
-    baseurl: https://download.postgresql.org/pub/repos/yum/13/redhat/rhel-7.9-x86_64/
-    gpgcheck: no
+#- name: Set postgres 13.x repo
+#  yum_repository:
+#    name: postgresql13.x
+#    description: postgresql 13.x repo
+#    baseurl: https://download.postgresql.org/pub/repos/yum/13/redhat/rhel-7.9-x86_64/
+#    gpgcheck: no
 
 - name: Install postgres 13.x packages 
   yum:
