@@ -34,7 +34,7 @@ postgres13_packages:
   - postgresql13-plpython3.x86_64
   - postgresql13-pltcl.x86_64
 # - postgresql13-server.x86_64
-  - postgresql13-test.x86_64
+#  - postgresql13-test.x86_64
 
 postgres13_rhel_packages:
   - rh-postgresql13.x86_64
