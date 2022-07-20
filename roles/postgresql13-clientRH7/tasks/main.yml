@@ -69,6 +69,13 @@
 #    baseurl: https://download.postgresql.org/pub/repos/yum/13/redhat/rhel-7.9-x86_64/
 #    gpgcheck: no
 
+- name: Install postgres 13.x package dependencies 
+  yum:
+    name: "{{ item }}"
+    state: present
+    disable_gpg_check: yes
+  with_items: "{{ postgres13_dependencies }}"
+  
 - name: Install postgres 13.x packages 
   yum:
     name: "{{ item }}"
