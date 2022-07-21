@@ -57,11 +57,12 @@
 #   - python2RH7
 #   - python3RH7
 #   - devtools7
-#   - odbc7
+    - odbc7
+#   - postgresql-client7
 #   - postgresql-client7
 #   - sasRH7
 #   - stattransfer14
-    - redis7
+#   - redis7
 
   post_tasks:
 #   - name: register mime types

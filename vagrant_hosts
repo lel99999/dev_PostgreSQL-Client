@@ -1,3 +1,3 @@
 [research_environment]
-pg13_clientRH7 ansible_host=192.168.56.128 
+pgclient ansible_host=192.168.56.128 
 

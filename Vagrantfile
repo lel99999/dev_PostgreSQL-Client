@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 #   pgclient.vm.box = "bento/centos-6.10"
 #   pgclient.vm.box = "clouddood/RH7.5_baserepo"
     pgclient.vm.box = "clouddood/RH7.5_baserepo"
-    pgclient.vm.host_name = "pg13-client.test.dev"
+    pgclient.vm.host_name = "pgclient.test.dev"
 
     pgclient.ssh.forward_agent = true
 
