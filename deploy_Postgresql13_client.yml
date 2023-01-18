@@ -47,4 +47,4 @@
 #   - {role: puppet_disable, when: "disable_puppet"}
 #   - {role: iptables, when: "iptables_config"}
     - postgresql13-clientRH7
-    - odbc7
+#   - odbc7
